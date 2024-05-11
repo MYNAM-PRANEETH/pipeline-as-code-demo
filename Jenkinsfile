@@ -49,7 +49,7 @@ pipeline {
 
        stage('Code Build') {
     steps {
-        tool 'maven3'
+        
         sh 'mvn install -Dmaven.test.skip=true'
     }
 }
