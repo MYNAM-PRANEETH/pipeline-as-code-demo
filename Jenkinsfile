@@ -47,11 +47,13 @@ pipeline {
 
 
 
-        stage('Code Build') {
-            steps {
-                 sh 'mvn install -Dmaven.test.skip=true'
-            }
-        }
+       stage('Code Build') {
+    steps {
+        tool 'maven3'
+        sh 'mvn install -Dmaven.test.skip=true'
+    }
+}
+
 
         stage('Priting All Global Variables') {
             steps {
