@@ -35,15 +35,16 @@ pipeline {
         }
 
         stage('Code Checkout') {
-          steps {
-        script {
-            // Use the 'checkout' step to fetch code from Git
-            checkout([$class: 'GitSCM', 
-                      branches: [[name: '*/master']], 
-                      userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]])
-             }
-           }
-        }
+    steps {
+        tool 'Default'
+        checkout([
+            $class: 'GitSCM', 
+            branches: [[name: '*/master']], 
+            userRemoteConfigs: [[url: 'https://github.com/MYNAM-PRANEETH/pipeline-as-code-demo.git']]
+        ])
+    }
+}
+
 
 
         stage('Code Build') {
